@@ -27,6 +27,7 @@ const int OPERATOR=			3;
 const int DELIMITER=		4;
 const int CONSTANT=			5;
 char transferTable[128][128];
+//这里做一些小小的变化试试看
 vector<string> KeywordList =
 {
 	"auto",
