@@ -12,10 +12,10 @@
 
 
 
-//ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½Î§Îª0-5
-//ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½Î§Îª6-20
-//ï¿½Ö¸ï¿½ï¿½×´Ì¬ï¿½ï¿½Î§Îª21-40
-//ï¿½ï¿½Ò»Ð©Ð¡Ð¡ï¿½ï¿½ï¿½Þ¸ï¿½
+//³£Êý×´Ì¬·¶Î§Îª0-5
+//ÔËËã·û×´Ì¬·¶Î§Îª6-20
+//·Ö¸ô·û×´Ì¬·¶Î§Îª21-40
+//×öÒ»Ð©Ð¡Ð¡µÄÐÞ¸Ä
 
 using namespace std;
 const int OTHER_ERROR = -2;
@@ -210,9 +210,9 @@ binTable operator_Automat(vector<char>::iterator *runner)
 
 void initTable()
 {
-	//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
+	//³õÊ¼»¯×Ô¶¯»úÌø×ª±í
 	int i;
-	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
+	//³£Êý³õÊ¼»¯
 	for (i = '0'; i < '9'; i++)
 	{
 		transferTable[i][0] = 1;
@@ -252,7 +252,7 @@ void initTable()
 
 	}
 
-	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
+	//ÔËËã·û³õÊ¼»¯
 
 	for (i = 0; i <= 20; i++)
 	{
@@ -299,15 +299,15 @@ vector<binTable> C_Automat(vector<char>::iterator head,vector<char>::iterator en
 	initTable();
 	char *strTemp;
 
-	//É¨ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½	
+	//É¨ÃèÔ´´úÂë	
 	for (
 		vector<char>::iterator manageRunner = head;
 		*manageRunner != '\0';
 		manageRunner++
 		)
 	{
-		//ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½Ö·ï¿½
-		//Í¨ï¿½ï¿½ï¿½Ô»Ø³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½Ðºï¿½
+		//½«Ö¸ÕëÒÆ¶¯µ½µÚÒ»¸ö·Ç¿Õ×Ö·û
+		//Í¨¹ý¶Ô»Ø³µ½øÐÐÌØÊâÅÐ¶¨À´»ñÈ¡ÐÐºÅ
 		while(	(*manageRunner == ' ')||
 				(*manageRunner=='	')||
 				(*manageRunner=='\n') )
@@ -319,9 +319,9 @@ vector<binTable> C_Automat(vector<char>::iterator head,vector<char>::iterator en
 			manageRunner++;
 			
 		}
-		//ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
+		//½øÐÐ±¾´Î×Ö·ûµÄÅÐ¶¨
 
-		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//½ç·ûµÄÇé¿ö
 		if (	(*manageRunner==',')||
 				(*manageRunner==';')||
 				(*manageRunner=='{')||
@@ -329,7 +329,7 @@ vector<binTable> C_Automat(vector<char>::iterator head,vector<char>::iterator en
 				(*manageRunner=='(')||
 				(*manageRunner==')')	)
 		{
-			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			//½«½ç·û´æÈë¶þÔª±íÊý×éÖÐ
 			binTable temp;
 			temp.data = *manageRunner;
 			temp.type = DELIMITER;
@@ -337,10 +337,10 @@ vector<binTable> C_Automat(vector<char>::iterator head,vector<char>::iterator en
 
 			result.push_back(temp);
 		}
-		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//³£ÊýµÄÇé¿ö
 		else if (*manageRunner >= '0'&&*manageRunner <= '9')
 		{
-			//ï¿½Ú³ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
+			//ÔÚ³£Êý×Ô¶¯»úÄÚ½øÐÐ½ÓÊÜÅÐ¶¨
 			binTable temp = constant_Automat(&manageRunner);
 			if (temp.type == -1)
 			{
@@ -356,7 +356,7 @@ vector<binTable> C_Automat(vector<char>::iterator head,vector<char>::iterator en
 				
 			}
 		}
-		//ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½
+		//±êÊ¶·û»ò¹Ø¼ü×ÖµÄÇé¿ö
 		else if(	(*manageRunner >= 'a'&&*manageRunner <= 'z')||
 					(*manageRunner >= 'A'&&*manageRunner <= 'Z')	)
 		{
@@ -373,7 +373,7 @@ vector<binTable> C_Automat(vector<char>::iterator head,vector<char>::iterator en
 				cout << lineNumber << "\t" << temp.data << "\t" << "IDENTIFIER" << "\n";
 			}
 		}
-		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//ÔËËã·ûµÄÇé¿ö
 		else
 		{
 			binTable temp= operator_Automat(&manageRunner);
@@ -424,6 +424,7 @@ int main()
 	{
 		fputc('(', outputer);
 		string::iterator strRunner;
+		for (strRunner = (*writer).data.begin(); strRunner != (*writer).data.end();strRunner++)
 		{
 			fputc(*strRunner, outputer);
 		}
